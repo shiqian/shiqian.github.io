@@ -102,7 +102,6 @@ iptables -N FORWARD
 iptables -P FORWARD DROP
 iptables -A FOREARD -I eth1 -s A.B.C/<span class="number">24</span> -dport Pi -m <span class="keyword">state</span> --state NEW,ESTABLISHED -j ACCEPT
 iptables -A FOREARD -I eth2 -d A.B.C/<span class="number">24</span> -sport Pi -m <span class="keyword">state</span> --state ESTABLISHED -j ACCEPT
-
 ```    
 </code></pre><p>This solution relies on the stateful inspection feature.</p>
 
