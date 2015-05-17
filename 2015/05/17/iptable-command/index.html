@@ -5,18 +5,36 @@
   
   <title>iptable_command | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="packet filter1. display default policies and the rules in effect1iptables -L -v -n
-2. to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:1">
+  <meta name="description" content="packet filter
+display default policies and the rules in effect
+
+1iptables -L -v -n
+
+to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:
+
+1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptable_command">
 <meta property="og:url" content="http://yoursite.com/2015/05/17/iptable-command/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="packet filter1. display default policies and the rules in effect1iptables -L -v -n
-2. to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:1">
+<meta property="og:description" content="packet filter
+display default policies and the rules in effect
+
+1iptables -L -v -n
+
+to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:
+
+1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptable_command">
-<meta name="twitter:description" content="packet filter1. display default policies and the rules in effect1iptables -L -v -n
-2. to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:1">
+<meta name="twitter:description" content="packet filter
+display default policies and the rules in effect
+
+1iptables -L -v -n
+
+to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:
+
+1">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -84,8 +102,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="packet_filter">packet filter</h1><h3 id="1-_display_default_policies_and_the_rules_in_effect">1. display default policies and the rules in effect</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -<span class="keyword">L</span> -v -<span class="keyword">n</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-_to_set_“drop_all_unmatched_packets”_as_the_default_policy,_the_packet_filter_configuration_can_be_set_as_follows:">2. to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># *suppressing all rules*</span><br><span class="line">iptables -F</span><br><span class="line"># *deleting all non standard chains*</span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"># *basic policy: <span class="operator"><span class="keyword">drop</span> every packet*</span><br><span class="line">iptables -P <span class="keyword">INPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P <span class="keyword">OUTPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P FORWARD <span class="keyword">DROP</span></span></span><br></pre></td></tr></table></figure>
+        <h1 id="packet_filter">packet filter</h1><ol>
+<li>display default policies and the rules in effect</li>
+</ol>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -<span class="keyword">L</span> -v -<span class="keyword">n</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># *suppressing all rules*</span><br><span class="line">iptables -F</span><br><span class="line"># *deleting all non standard chains*</span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"># *basic policy: <span class="operator"><span class="keyword">drop</span> every packet*</span><br><span class="line">iptables -P <span class="keyword">INPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P <span class="keyword">OUTPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P FORWARD <span class="keyword">DROP</span></span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
