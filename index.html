@@ -88,8 +88,23 @@
  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -<span class="keyword">L</span> -v -<span class="keyword">n</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># suppressing all rules</span><br><span class="line">iptables -F</span><br><span class="line"># deleting all non standard chains</span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"># basic policy: <span class="operator"><span class="keyword">drop</span> every packet</span><br><span class="line">iptables -P <span class="keyword">INPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P <span class="keyword">OUTPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P FORWARD <span class="keyword">DROP</span></span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># suppressing all rules</span><br><span class="line">iptables -F</span><br><span class="line"># deleting all non standard chains</span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"># basic policy: <span class="operator"><span class="keyword">drop</span> every packet</span><br><span class="line">iptables -P <span class="keyword">INPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P <span class="keyword">OUTPUT</span> <span class="keyword">DROP</span></span><br><span class="line">iptables -P FORWARD <span class="keyword">DROP</span></span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>iptables contain multiple tables: filter table, nat table, mangle table and raw table.<br>filter is default table for iptables. filter table has the following built-in chains:</p>
+<pre><code>* INPUT chain - incoming <span class="keyword">to</span> firewall. <span class="keyword">for</span> packets coming <span class="keyword">to</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
+* OUTPUT chain - outgoing <span class="keyword">from</span> firewall. <span class="keyword">for</span> packets generated locally <span class="keyword">and</span> going <span class="keyword">out of</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
+* FORWARD chain -packet <span class="keyword">for</span> another NIC <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> <span class="keyword">local</span> server. <span class="keyword">for</span> packets routed <span class="keyword">through</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
+</code></pre><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
+<pre><code>```
+iptables -F FORWARD
+iptables -N FORWARD
+iptables -P FORWARD DROP
+iptables -A FOREARD -I eth1 -s A.B.C/<span class="number">24</span> -dport Pi -m <span class="keyword">state</span> --state NEW,ESTABLISHED -j ACCEPT
+iptables -A FOREARD -I eth2 -d A.B.C/<span class="number">24</span> -sport Pi -m <span class="keyword">state</span> --state ESTABLISHED -j ACCEPT
+
+```    
+</code></pre><p>This solution relies on the stateful inspection feature.</p>
 
       
     </div>
