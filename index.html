@@ -92,17 +92,13 @@
 </li>
 </ol>
 <h3 id="structure_of_iptables">structure of iptables</h3><p>iptables contain multiple tables: filter table, nat table, mangle table and raw table.<br>filter is default table for iptables. filter table has the following built-in chains:</p>
-<pre><code>* INPUT chain - incoming <span class="keyword">to</span> firewall. <span class="keyword">for</span> packets coming <span class="keyword">to</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
-* OUTPUT chain - outgoing <span class="keyword">from</span> firewall. <span class="keyword">for</span> packets generated locally <span class="keyword">and</span> going <span class="keyword">out of</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
-* FORWARD chain -packet <span class="keyword">for</span> another NIC <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> <span class="keyword">local</span> server. <span class="keyword">for</span> packets routed <span class="keyword">through</span> <span class="keyword">the</span> <span class="keyword">local</span> server.
-</code></pre><h3 id="example">example</h3><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
-<pre><code>``` bash
-iptables -F FORWARD
-iptables -N FORWARD
-iptables -P FORWARD DROP
-iptables -A FOREARD -I eth1 -s A.B.C/<span class="number">24</span> -dport Pi -m <span class="keyword">state</span> --state NEW,ESTABLISHED -j ACCEPT
-iptables -A FOREARD -I eth2 -d A.B.C/<span class="number">24</span> -sport Pi -m <span class="keyword">state</span> --state ESTABLISHED -j ACCEPT
-```    
+<ul>
+<li>INPUT chain - incoming to firewall. for packets coming to the local server.</li>
+<li>OUTPUT chain - outgoing from firewall. for packets generated locally and going out of the local server.</li>
+<li>FORWARD chain -packet for another NIC on the local server. for packets routed through the local server.</li>
+</ul>
+<h3 id="example">example</h3><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
+<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -F FORWARD</span><br><span class="line">iptables -N FORWARD</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -A FOREARD -I eth1 <span class="operator">-s</span> A.B.C/<span class="number">24</span> -dport Pi -m state --state NEW,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A FOREARD -I eth2 <span class="operator">-d</span> A.B.C/<span class="number">24</span> -sport Pi -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure></span>
 </code></pre><p>This solution relies on the stateful inspection feature.</p>
 
       
