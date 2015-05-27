@@ -6,23 +6,17 @@
   <title>How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Errorwhen I try to install libmagic, there is an error as following:
-&amp;lt;span style=&quot;background-color:green&quot;&amp;gt;
-apples-Air:forensic xiaoqian$ sudo brew install libmagic
-Error: Cowardly refusing to `s">
+apples-Air:forensic xiaoqian$ sudo brew install libmagicError: Cowardly refusing to sudo brew installYou can use brew with sudo, bu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X">
 <meta property="og:url" content="http://yoursite.com/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Errorwhen I try to install libmagic, there is an error as following:
-&amp;lt;span style=&quot;background-color:green&quot;&amp;gt;
-apples-Air:forensic xiaoqian$ sudo brew install libmagic
-Error: Cowardly refusing to `s">
+apples-Air:forensic xiaoqian$ sudo brew install libmagicError: Cowardly refusing to sudo brew installYou can use brew with sudo, bu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X">
 <meta name="twitter:description" content="Errorwhen I try to install libmagic, there is an error as following:
-&amp;lt;span style=&quot;background-color:green&quot;&amp;gt;
-apples-Air:forensic xiaoqian$ sudo brew install libmagic
-Error: Cowardly refusing to `s">
+apples-Air:forensic xiaoqian$ sudo brew install libmagicError: Cowardly refusing to sudo brew installYou can use brew with sudo, bu">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,14 +89,8 @@ Error: Cowardly refusing to `s">
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Error">Error</h3><p>when I try to install libmagic, there is an error as following:</p>
-<pre><code>&lt;span style=<span class="string">"background-color:green"</span>&gt;
-apples-Air:forensic xiaoqian$ sudo brew install libmagic
-Error: Cowardly refusing <span class="keyword">to</span> `sudo brew install`
-You can use brew <span class="keyword">with</span> sudo, <span class="keyword">but</span> only <span class="keyword">if</span> <span class="keyword">the</span> brew executable <span class="keyword">is</span> owned <span class="keyword">by</span> root.
-However, this <span class="keyword">is</span> both <span class="keyword">not</span> recommended <span class="keyword">and</span> completely unsupported so do so <span class="keyword">at</span>
-your own risk.
-&lt;/span&gt;
-</code></pre><h3 id="Solution">Solution</h3><p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
+<p>apples-Air:forensic xiaoqian$ sudo brew install libmagic<br>Error: Cowardly refusing to <code>sudo brew install</code><br>You can use brew with sudo, but only if the brew executable is owned by root.<br>However, this is both not recommended and completely unsupported so do so at<br>your own risk.</p>
+<h3 id="Solution">Solution</h3><p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
 <pre><code><span class="comment"><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><p>The result is like this:</p>
 <pre><code><span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x  <span class="number">1</span> marc  admin  <span class="number">791</span> Feb <span class="number">18</span> <span class="number">05</span>:<span class="number">05</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>brew</span><br></pre></td></tr></table></figure></span>
