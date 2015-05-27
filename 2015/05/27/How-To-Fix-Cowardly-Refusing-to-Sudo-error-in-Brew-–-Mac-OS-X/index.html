@@ -7,19 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="First find out what is the current ownership of the installed package of brew (you will need this info in the last step)
 1ls -al `which brew`
-The result is like this:1-rwxr-xr-x  1 marc  admin  791 Fe">
+The result is like this:
+1-rwxr-xr-x  1 marc  admin  791 F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X">
 <meta property="og:url" content="http://yoursite.com/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="First find out what is the current ownership of the installed package of brew (you will need this info in the last step)
 1ls -al `which brew`
-The result is like this:1-rwxr-xr-x  1 marc  admin  791 Fe">
+The result is like this:
+1-rwxr-xr-x  1 marc  admin  791 F">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X">
 <meta name="twitter:description" content="First find out what is the current ownership of the installed package of brew (you will need this info in the last step)
 1ls -al `which brew`
-The result is like this:1-rwxr-xr-x  1 marc  admin  791 Fe">
+The result is like this:
+1-rwxr-xr-x  1 marc  admin  791 F">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -92,13 +95,14 @@ The result is like this:1-rwxr-xr-x  1 marc  admin  791 Fe">
     <div class="article-entry" itemprop="articleBody">
       
         <p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure>
-<p>The result is like this:<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x  <span class="number">1</span> marc  admin  <span class="number">791</span> Feb <span class="number">18</span> <span class="number">05</span>:<span class="number">05</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>brew</span><br></pre></td></tr></table></figure></p>
-<p>Change the user and group of brew to root and wheel respectively:</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> root:wheel <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure>
-<p>Now execute your brew command as root, for eg. sudo brew link mcrypt. Lastly, revert back the ownership of brew to what you had found out in step 1 above</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> marc:admin <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://digitizor.com/2014/06/29/fix-cowardly-refusing-sudo-error-brew/" target="_blank" rel="external">Reference</a></p>
+<pre><code><span class="comment"><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p>The result is like this:</p>
+<pre><code><span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x  <span class="number">1</span> marc  admin  <span class="number">791</span> Feb <span class="number">18</span> <span class="number">05</span>:<span class="number">05</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>brew</span><br></pre></td></tr></table></figure></span>
+</code></pre><p>Change the user and group of brew to root and wheel respectively:</p>
+<pre><code><span class="comment"><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> root:wheel <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p>Now execute your brew command as root, for eg. sudo brew link mcrypt. Lastly, revert back the ownership of brew to what you had found out in step 1 above</p>
+<pre><code><span class="comment"><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> marc:admin <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p><a href="http://digitizor.com/2014/06/29/fix-cowardly-refusing-sudo-error-brew/" target="_blank" rel="external">Reference</a></p>
 
       
     </div>
