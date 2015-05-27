@@ -87,7 +87,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
+        <h3 id="Error">Error</h3><p>when I try to install libmagic, there is an error as following:</p>
+<p><span style="background-color:green"><br>apples-Air:forensic xiaoqian$ sudo brew install libmagic<br>Error: Cowardly refusing to <code>sudo brew install</code><br>You can use brew with sudo, but only if the brew executable is owned by root.<br>However, this is both not recommended and completely unsupported so do so at<br>your own risk.<br></span></p>
+<h3 id="Solution">Solution</h3><p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
 <pre><code><span class="comment"><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><p>The result is like this:</p>
 <pre><code><span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x  <span class="number">1</span> marc  admin  <span class="number">791</span> Feb <span class="number">18</span> <span class="number">05</span>:<span class="number">05</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>brew</span><br></pre></td></tr></table></figure></span>
