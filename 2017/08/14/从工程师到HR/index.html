@@ -3,29 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iptable_command | Hexo</title>
+  <title>从工程师到HR | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+  <meta name="description" content="缘起作为一名理科女生，在从事攻城狮（相比“程序猿”，更爱“攻城狮”这个称号）5年后，我终于决定遵从自己的本心，向理想的职业—HR进发。
+受身为语文教师的父亲的熏陶，从小我就爱阅读人文社科方面的书籍，在求学／工作过程中，我也是尽一切努力抓住让我显露写作／沟通才华的机遇。
+你也许会问，当初高考填志愿你为什么不选择人力资源呢？是啊，为什么我选了电子信息工程呢？且听我慢慢道来。我高中时代的偶像，一位比我高">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptable_command">
-<meta property="og:url" content="http://yoursite.com/2015/05/17/iptable-command/index.html">
+<meta property="og:title" content="从工程师到HR">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/从工程师到HR/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+<meta property="og:description" content="缘起作为一名理科女生，在从事攻城狮（相比“程序猿”，更爱“攻城狮”这个称号）5年后，我终于决定遵从自己的本心，向理想的职业—HR进发。
+受身为语文教师的父亲的熏陶，从小我就爱阅读人文社科方面的书籍，在求学／工作过程中，我也是尽一切努力抓住让我显露写作／沟通才华的机遇。
+你也许会问，当初高考填志愿你为什么不选择人力资源呢？是啊，为什么我选了电子信息工程呢？且听我慢慢道来。我高中时代的偶像，一位比我高">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptable_command">
-<meta name="twitter:description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+<meta name="twitter:title" content="从工程师到HR">
+<meta name="twitter:description" content="缘起作为一名理科女生，在从事攻城狮（相比“程序猿”，更爱“攻城狮”这个称号）5年后，我终于决定遵从自己的本心，向理想的职业—HR进发。
+受身为语文教师的父亲的熏陶，从小我就爱阅读人文社科方面的书籍，在求学／工作过程中，我也是尽一切努力抓住让我显露写作／沟通才华的机遇。
+你也许会问，当初高考填志愿你为什么不选择人力资源呢？是啊，为什么我选了电子信息工程呢？且听我慢慢道来。我高中时代的偶像，一位比我高">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -71,14 +65,14 @@ to set “drop all unmatched packets” as the default policy, the packet filter
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-iptable-command" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-从工程师到HR" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/05/17/iptable-command/" class="article-date">
-  <time datetime="2015-05-17T16:19:05.000Z" itemprop="datePublished">2015-05-17</time>
+    <a href="/2017/08/14/从工程师到HR/" class="article-date">
+  <time datetime="2017-08-14T09:48:50.000Z" itemprop="datePublished">2017-08-14</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/categories/HR/">HR</a>
   </div>
 
   </div>
@@ -89,7 +83,7 @@ to set “drop all unmatched packets” as the default policy, the packet filter
         
   
     <h1 class="article-title" itemprop="name">
-      iptable_command
+      从工程师到HR
     </h1>
   
 
@@ -97,51 +91,29 @@ to set “drop all unmatched packets” as the default policy, the packet filter
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="packet_filter">packet filter</h1><h3 id="common_command">common command</h3><ol>
-<li><p>display default policies and the rules in effect</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -v -n</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># suppressing all rules</span></span><br><span class="line">iptables -F</span><br><span class="line"><span class="comment"># deleting all non standard chains</span></span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"><span class="comment"># basic policy: drop every packet</span></span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br><span class="line">iptables -P FORWARD DROP</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="structure_of_iptables">structure of iptables</h3><p>iptables contain multiple tables: filter table, nat table, mangle table and raw table.<br>filter is default table for iptables. filter table has the following built-in chains:</p>
-<ul>
-<li>INPUT chain - incoming to firewall. for packets coming to the local server.</li>
-<li>OUTPUT chain - outgoing from firewall. for packets generated locally and going out of the local server.</li>
-<li>FORWARD chain -packet for another NIC on the local server. for packets routed through the local server.</li>
-</ul>
-<h3 id="example">example</h3><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -F FORWARD</span><br><span class="line">iptables -N FORWARD</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -A FORWARD -I eth1 <span class="operator">-s</span> A.B.C/<span class="number">24</span> -dport Pi -m state --state NEW,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A FORWARD -I eth2 <span class="operator">-d</span> A.B.C/<span class="number">24</span> -sport Pi -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure></span>
-</code></pre><p>This solution relies on the stateful inspection feature.</p>
+        <h2 id="缘起">缘起</h2><p>作为一名理科女生，在从事攻城狮（相比“程序猿”，更爱“攻城狮”这个称号）5年后，我终于决定遵从自己的本心，向理想的职业—HR进发。</p>
+<p>受身为语文教师的父亲的熏陶，从小我就爱阅读人文社科方面的书籍，在求学／工作过程中，我也是尽一切努力抓住让我显露写作／沟通才华的机遇。</p>
+<p>你也许会问，当初高考填志愿你为什么不选择人力资源呢？是啊，为什么我选了电子信息工程呢？且听我慢慢道来。我高中时代的偶像，一位比我高一届的学姐，被保送清华大学电子工程系，我当时年纪小嘛，顿时觉得女生读理科好酷，恰好数学连考三次150，洋洋自得得不行，所以我在高二义无反顾选了理科，自然而然地高考后也就义无反顾地选了偶像的专业。</p>
+<p>在工作中，我遇到过糟糕的HR，也遇到过优秀的HR。遇到前者我就会想，如果将来我从事HR了一定做得比你好；遇到后者我就会想，原来HR真的为支撑部门做出了这么大的贡献，可以让研发部门心无旁骛地工作。在参加工作后的第二年我就萌生了转岗的想法，却一直因为不自信而犹豫踌躇。天性活泼，乐于助人，善解人意，幽默诙谐，真诚豁达，这是朋友同事们为我贴的标签，从性格来看，我实在太适合HR这份职业了。但从专业来看，我需要恶补。直到数月前某天我福至心灵，立志在30岁之前转行，让人生不留遗憾，由此开启了从攻城狮到HR的漫漫征程。</p>
+<h2 id="学习曲线">学习曲线</h2><p>05/2017 - 08/2017 Cousera: Human Resource Management: HR for People Managers Specialization<br><a href="https://www.coursera.org/specializations/human-resource-management" target="_blank" rel="external">https://www.coursera.org/specializations/human-resource-management</a></p>
+<p>08/2017 - 开通blog记录学习HR基础理论的点滴</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/17/iptable-command/" data-id="cj6df1j400003resc5gxspyl5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/14/从工程师到HR/" data-id="cj6df1j3t0000resch8nn1rf7" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iptable/">iptable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X</div>
     </a>
   
 </nav>
