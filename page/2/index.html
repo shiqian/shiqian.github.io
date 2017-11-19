@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            首頁
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            歸檔
           </a>
         </li>
       
@@ -233,6 +233,158 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiqian YU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QianBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/" itemprop="url">How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-05-27T11:51:04+02:00">
+                2015-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/macOS/" itemprop="url" rel="index">
+                    <span itemprop="name">macOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Error">Error</h3><p>When I try to install libmagic, there is an error as following:</p>
+<p><span><br>apples-Air:forensic xiaoqian$ sudo brew install libmagic<br>Error: Cowardly refusing to <code>sudo brew install</code><br>You can use brew with sudo, but only if the brew executable is owned by root.<br>However, this is both not recommended and completely unsupported so do so at<br>your own risk.<br></span></p>
+<h3 id="Solution">Solution</h3><p>First find out what is the current ownership of the installed package of brew (you will need this info in the last step)</p>
+<pre><code><span class="comment"><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p>The result is like this:</p>
+<pre><code><span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x  <span class="number">1</span> marc  admin  <span class="number">791</span> Feb <span class="number">18</span> <span class="number">05</span>:<span class="number">05</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>brew</span><br></pre></td></tr></table></figure></span>
+</code></pre><p>Change the user and group of brew to root and wheel respectively:</p>
+<pre><code><span class="comment"><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> root:wheel <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p>Now execute your brew command as root, for eg. sudo brew link mcrypt. Lastly, revert back the ownership of brew to what you had found out in step 1 above</p>
+<pre><code><span class="comment"><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chown</span> marc:admin <span class="string">`which brew`</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><p><a href="http://digitizor.com/2014/06/29/fix-cowardly-refusing-sudo-error-brew/" target="_blank" rel="external">Reference</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -276,9 +428,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">發表於</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-17T18:19:05+02:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-05-17T18:19:05+02:00">
                 2015-05-17
               </time>
             
@@ -297,7 +449,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">分類於</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -434,9 +586,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">發表於</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-17T16:47:09+02:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-05-17T16:47:09+02:00">
                 2015-05-17
               </time>
             
@@ -569,8 +721,8 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">文章</span>
               </a>
             </div>
           
@@ -581,7 +733,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">分類</span>
               
             </div>
           
@@ -592,7 +744,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">標籤</span>
               
             </div>
           
@@ -643,11 +795,11 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動</div>
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+  <div class="theme-info">主題 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
 
 
         
