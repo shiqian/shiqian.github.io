@@ -247,6 +247,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/17/iptable-command/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shiqian YU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QianBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/05/17/iptable-command/" itemprop="url">iptable_command</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-05-17T18:19:05+02:00">
+                2015-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="packet_filter">packet filter</h1><h3 id="common_command">common command</h3><ol>
+<li><p>display default policies and the rules in effect</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -v -n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># suppressing all rules</span></span><br><span class="line">iptables -F</span><br><span class="line"><span class="comment"># deleting all non standard chains</span></span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"><span class="comment"># basic policy: drop every packet</span></span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br><span class="line">iptables -P FORWARD DROP</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="structure_of_iptables">structure of iptables</h3><p>iptables contain multiple tables: filter table, nat table, mangle table and raw table.<br>filter is default table for iptables. filter table has the following built-in chains:</p>
+<ul>
+<li>INPUT chain - incoming to firewall. for packets coming to the local server.</li>
+<li>OUTPUT chain - outgoing from firewall. for packets generated locally and going out of the local server.</li>
+<li>FORWARD chain -packet for another NIC on the local server. for packets routed through the local server.</li>
+</ul>
+<h3 id="example">example</h3><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
+<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -F FORWARD</span><br><span class="line">iptables -N FORWARD</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -A FORWARD -I eth1 <span class="operator">-s</span> A.B.C/<span class="number">24</span> -dport Pi -m state --state NEW,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A FORWARD -I eth2 <span class="operator">-d</span> A.B.C/<span class="number">24</span> -sport Pi -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure></span>
+</code></pre><p>This solution relies on the stateful inspection feature.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -411,7 +569,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -422,7 +580,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分類</span>
               
             </div>
@@ -433,7 +591,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">標籤</span>
               
             </div>
