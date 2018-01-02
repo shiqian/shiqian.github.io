@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iptable,network," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -95,27 +95,15 @@
 
 
 
-<meta name="description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptable_command">
-<meta property="og:url" content="http://yoursite.com/2015/05/17/iptable-command/index.html">
+<meta property="og:title" content="How to ace yor final interview">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/How-to-ace-yor-final-interview/index.html">
 <meta property="og:site_name" content="QianBlog">
-<meta property="og:description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptable_command">
-<meta name="twitter:description" content="packet filtercommon command
-display default policies and the rules in effect
- 1iptables -L -v -n
-
-to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set">
+<meta name="twitter:title" content="How to ace yor final interview">
+<meta name="twitter:description">
 
 
 
@@ -145,13 +133,13 @@ to set “drop all unmatched packets” as the default policy, the packet filter
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/05/17/iptable-command/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/01/How-to-ace-yor-final-interview/"/>
 
 
 
 
 
-  <title>iptable_command | QianBlog</title>
+  <title>How to ace yor final interview | QianBlog</title>
   
 
 
@@ -258,7 +246,7 @@ to set “drop all unmatched packets” as the default policy, the packet filter
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/17/iptable-command/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/How-to-ace-yor-final-interview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shiqian YU">
@@ -275,7 +263,7 @@ to set “drop all unmatched packets” as the default policy, the packet filter
 
         
         
-          <h1 class="post-title" itemprop="name headline">iptable_command</h1>
+          <h1 class="post-title" itemprop="name headline">How to ace yor final interview</h1>
         
 
         <div class="post-meta">
@@ -287,8 +275,8 @@ to set “drop all unmatched packets” as the default policy, the packet filter
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-05-17T18:19:05+02:00">
-                2015-05-17
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-01T21:19:45+01:00">
+                2018-01-01
               </time>
             
 
@@ -297,28 +285,6 @@ to set “drop all unmatched packets” as the default policy, the packet filter
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -347,24 +313,7 @@ to set “drop all unmatched packets” as the default policy, the packet filter
       
 
       
-        <h1 id="packet_filter">packet filter</h1><h3 id="common_command">common command</h3><ol>
-<li><p>display default policies and the rules in effect</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -v -n</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>to set “drop all unmatched packets” as the default policy, the packet filter configuration can be set as follows:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># suppressing all rules</span></span><br><span class="line">iptables -F</span><br><span class="line"><span class="comment"># deleting all non standard chains</span></span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line"><span class="comment"># basic policy: drop every packet</span></span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br><span class="line">iptables -P FORWARD DROP</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="structure_of_iptables">structure of iptables</h3><p>iptables contain multiple tables: filter table, nat table, mangle table and raw table.<br>filter is default table for iptables. filter table has the following built-in chains:</p>
-<ul>
-<li>INPUT chain - incoming to firewall. for packets coming to the local server.</li>
-<li>OUTPUT chain - outgoing from firewall. for packets generated locally and going out of the local server.</li>
-<li>FORWARD chain -packet for another NIC on the local server. for packets routed through the local server.</li>
-</ul>
-<h3 id="example">example</h3><p>For example, hosts located in the local network are authorized to established outbound connections with hosts in the internet for a set of application protocols identified by port number {Pi} and to transfer data as part of these connections. The ruleset to implement this policy would be as follows:</p>
-<pre><code><span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -F FORWARD</span><br><span class="line">iptables -N FORWARD</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">iptables -A FORWARD -I eth1 <span class="operator">-s</span> A.B.C/<span class="number">24</span> -dport Pi -m state --state NEW,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A FORWARD -I eth2 <span class="operator">-d</span> A.B.C/<span class="number">24</span> -sport Pi -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure></span>
-</code></pre><p>This solution relies on the stateful inspection feature.</p>
-
+        
       
     </div>
     
@@ -379,14 +328,6 @@ to set “drop all unmatched packets” as the default policy, the packet filter
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iptable/" rel="tag"># iptable</a>
-          
-            <a href="/tags/network/" rel="tag"># network</a>
-          
-        </div>
-      
 
       
       
@@ -396,8 +337,8 @@ to set “drop all unmatched packets” as the default policy, the packet filter
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/17/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/01/01/Are-you-ready-for-the-interview-Team-Coordinator/" rel="next" title="Are you ready for the interview, Team Coordinator?">
+                <i class="fa fa-chevron-left"></i> Are you ready for the interview, Team Coordinator?
               </a>
             
           </div>
@@ -405,10 +346,6 @@ to set “drop all unmatched packets” as the default policy, the packet filter
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/05/27/How-To-Fix-Cowardly-Refusing-to-Sudo-error-in-Brew-–-Mac-OS-X/" rel="prev" title="How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X">
-                How To Fix Cowardly Refusing to Sudo error in Brew – Mac OS X <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,17 +397,8 @@ to set “drop all unmatched packets” as the default policy, the packet filter
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">Shiqian YU</p>
@@ -531,22 +459,6 @@ to set “drop all unmatched packets” as the default policy, the packet filter
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#packet_filter"><span class="nav-number">1.</span> <span class="nav-text">packet filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#common_command"><span class="nav-number">1.0.1.</span> <span class="nav-text">common command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#structure_of_iptables"><span class="nav-number">1.0.2.</span> <span class="nav-text">structure of iptables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.0.3.</span> <span class="nav-text">example</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
